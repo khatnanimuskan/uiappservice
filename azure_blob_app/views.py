@@ -12,6 +12,8 @@ import os
 from .models import RandomId
 from .django_forms import UserDetails_Form
 from .databricks_linux import test324
+from threading import Thread
+
 
 def execute_all_func(form_data):
     logger = get_logger()
@@ -175,7 +177,7 @@ def execute_all_func(form_data):
     except Exception as e:
         logger.error(str(e))
         error_flag = True
-    return error_flag
+    return
 
 
 def index(request):
@@ -186,7 +188,8 @@ def index(request):
             form = UserDetails_Form(request.POST)
             if form.is_valid():
                 form_data = dict(form.data.items())
-                error = execute_all_func(form_data)
+                thread_var = Thread(target=execute_all_func,args=(form_data,))
+                thread_var.start()
     except Exception as e:
         logger.error(str(e))
     form = UserDetails_Form()
