@@ -153,7 +153,7 @@ def execute_all_func(form_data):
         dic2['parameters']['ResourceGroupName']['value'] = resourcegroup
         dic2['parameters']['ResourceGroupLocation']['value'] = rglocation
         
-        #test324.main(workspaceurl, accesstoken)
+        test324.main(workspaceurl, accesstoken)
 
         #os.system("python3 databricks_linux/test324.py {} {}".format(workspaceurl, accesstoken))
 
