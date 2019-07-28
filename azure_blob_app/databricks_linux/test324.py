@@ -3,7 +3,7 @@ import json
 import subprocess
 import os
 from subprocess import call
-
+import subprocess
 
 def main(databricks_instance, databricks_token):
     clusters_name = "test"
@@ -148,9 +148,10 @@ def main(databricks_instance, databricks_token):
 
     with open('or.json', 'w') as fp:
         json.dump(operational_research, fp)
-    call(['bash',os.path.join(os.getcwd(),'azure_blob_app/databricks_linux/main.sh'), databricks_instance,
-          databricks_token,
-          clusters_name])
+    subprocess.getoutput("bash /home/site/wwwroot/azure_blob_app/databricks_linux/main.sh {} {} {}".format(databricks_instance,databricks_token,clusters_name))
+    #call(['bash',os.path.join(os.getcwd(),'azure_blob_app/databricks_linux/main.sh'), databricks_instance,
+#          databricks_token,
+ #         clusters_name])
     # os.system("bash /home/site/wwwroot/azure_blob_app/databricks_linux/main.sh {} {} {}".format(databricks_instance,
     #                                                                                             databricks_token,
     #                                                                                             clusters_name))
