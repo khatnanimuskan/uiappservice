@@ -148,7 +148,7 @@ def main(databricks_instance, databricks_token):
 
     with open('or.json', 'w') as fp:
         json.dump(operational_research, fp)
-    call(['bash','/home/ubuntu/Desktop/supply_chain/azure_blob_app/databricks_linux/main.sh', databricks_instance,
+    call(['bash',os.path.join(os.getcwd(),'azure_blob_app/databricks_linux/main.sh'), databricks_instance,
           databricks_token,
           clusters_name])
     # os.system("bash /home/site/wwwroot/azure_blob_app/databricks_linux/main.sh {} {} {}".format(databricks_instance,
