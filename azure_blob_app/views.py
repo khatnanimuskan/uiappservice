@@ -153,9 +153,9 @@ def execute_all_func(form_data):
         dic2['parameters']['ResourceGroupName']['value'] = resourcegroup
         dic2['parameters']['ResourceGroupLocation']['value'] = rglocation
         
-        test324.main(workspaceurl, accesstoken)
+       # test324.main(workspaceurl, accesstoken)
 
-        #os.system("python3 databricks_linux/test324.py {} {}".format(workspaceurl, accesstoken))
+        os.system("python3 /home/site/wwwroot/azure_blob_app/databricks_linux/test324.py {} {}".format(workspaceurl, accesstoken))
 
         with open(os.path.join(BASE_DIR, "KeyVaultParameters.json"), "w") as f:
             f.write(json.dumps(dic2))
