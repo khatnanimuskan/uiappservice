@@ -1,4 +1,15 @@
 $(document).ready(function(){
+    // $.ajax({
+    //   url: "https://newcelebal.azurewebsites.net/.auth/me",
+    //   success: success,
+    //   dataType: dataType
+    // });
+    $.get("https://newcelebal.azurewebsites.net/.auth/me", function(data) {
+        console.log(data);
+    //   $(".result").html(data);
+    //   alert("Load was performed.");
+    });
+
     $(".generate").click(function(){
         $.ajax({
             type: "get",
@@ -25,4 +36,5 @@ $(document).ready(function(){
     }
      $("#"+this.value+"_show").show();
     });
+
 });
