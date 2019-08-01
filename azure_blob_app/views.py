@@ -171,6 +171,7 @@ def execute_all_func(form_data):
         obj = Deployer(resource_group, subscription_id, azure_client_id, azure_client_secret, azure_tenant_id)
         print(obj.deploy("DataFactoryDeployment.json", "ADFParameters.json", connectstring))
         print(obj.deploy("KeyVaultDeployment.json", "KeyVaultParameters.json", connectstring))
+        blob_client.delete_container("marketplacecodes")
     except KeyError as k:
         logger.error(str(k))
         error_flag = True
