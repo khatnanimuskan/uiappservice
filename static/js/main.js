@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $.get("https://newcelebal.azurewebsites.net/.auth/me", function(data) {
+  $.get("/.auth/me", function(data) {
     console.log(data);
     document.getElementById("username").innerHTML = data[0].user_claims[11].val;
   });
